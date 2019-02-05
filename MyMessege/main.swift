@@ -13,15 +13,9 @@ token=5c59e2ca7566a7001577d8e3\
 &text=\(message.replacingOccurrences(of: " ", with: "+" ))
 """
 
-//let smsApiURL = URL(string: smsURL)
-
     if number != "", message != "", let smsApiURL = URL(string: smsURL) {
     let response = try? String(contentsOf: smsApiURL)
         print(response ?? "Something went wrong")
     } else {
         print("Error! You have to enter the phone number and the message!")
 }
-
-
-
-
