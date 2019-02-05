@@ -1,12 +1,27 @@
-//
-//  main.swift
-//  MyMessege
-//
-//  Created by Вовк Ольга' on 2/5/19.
-//  Copyright © 2019 Вовк Ольга'. All rights reserved.
-//
-
 import Foundation
 
-print("Hello, World!")
+print("Enter the phone number")
+let number = readLine() ?? ""
+
+print("Enter your message")
+let message = readLine() ?? ""
+
+let smsURL = """
+https://iosfaststart.com/api/send-sms?\
+token=5c59e2ca7566a7001577d8e3\
+&to=\(number)\
+&text=\(message.replacingOccurrences(of: " ", with: "+" ))
+"""
+
+//let smsApiURL = URL(string: smsURL)
+
+    if number != "", message != "", let smsApiURL = URL(string: smsURL) {
+    let response = try? String(contentsOf: smsApiURL)
+        print(response ?? "Something went wrong")
+    } else {
+        print("Error! You have to enter the phone number and the message!")
+}
+
+
+
 
